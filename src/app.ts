@@ -42,8 +42,6 @@ export default class HelloWorld {
 			// Also apply the following generic actor properties.
 			actor: {
 				name: 'Altspace button',
-				// Parent the glTF model to the text actor, so the transform is relative to the text
-				// parentId: menu.id,
 				transform: {
 					local: {
 						position: { x: 0, y: -1, z: 0 },
@@ -62,8 +60,6 @@ export default class HelloWorld {
 			// Also apply the following generic actor properties.
 			actor: {
 				name: 'Altspace button1',
-				// Parent the glTF model to the text actor, so the transform is relative to the text
-				// parentId: menu.id,
 				transform: {
 					local: {
 						position: { x: 1, y: -1, z: 0 },
@@ -76,7 +72,7 @@ export default class HelloWorld {
 
 
 		this.button2 = MRE.Actor.CreateFromLibrary(this.context, {
-			resourceId: "artifact:1875243432314667647",
+			resourceId: "artifact:1867777493079949602",
 			actor: {
 				name: 'Altspace button2',
 				transform: {
