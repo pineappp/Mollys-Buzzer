@@ -55,7 +55,7 @@ export default class HelloWorld {
 			{ uri: 'https://cdn-content-ingress.altvr.com/uploads/audio_clip/audio/1882339059980829529/ogg_buzzersound.ogg' });
 
 
-		// Set up cursor interaction. We add the https://cdn-content-ingress.altvr.com/uploads/audio_clip/audio/1882339059980829529/ogg_buzzersound.ogginput behavior ButtonBehavior to the button.
+		// Set up cursor interaction. We add the sound
 		// Button behaviors have two pairs of events: hover start/stop, and click start/stop.
 		const buttonBehavior = this.button.setBehavior(MRE.ButtonBehavior);
 
