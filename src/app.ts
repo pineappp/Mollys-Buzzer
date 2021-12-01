@@ -60,7 +60,7 @@ export default class HelloWorld {
 			firstPrefabFrom: cubeData,
 			// Also apply the following generic actor properties.
 			actor: {
-				name: 'Altspace button',
+				name: 'Altspace button1',
 				// Parent the glTF model to the text actor, so the transform is relative to the text
 				parentId: menu.id,
 				transform: {
@@ -78,7 +78,7 @@ export default class HelloWorld {
 		
 		this.buzzerSound1 = this.assets.createSound(
 			'buzz1',
-			{ uri: 'https://cdn-content-ingress.altvr.com/uploads/audio_clip/audio/1882339059980829529/ogg_buzzersound.ogg' });
+			{ uri: 'https://cdn-content-ingress.altvr.com/uploads/audio_clip/audio/1882338733085164039/ogg_dingg.ogg' });
 
 
 		// Set up cursor interaction. We add the sound
@@ -97,10 +97,28 @@ export default class HelloWorld {
 			});
 		});
 		
+		buttonBehavior1.onHover('enter', () => {
+			// use the convenience function "AnimateTo" instead of creating the animation data in advance
+			MRE.Animation.AnimateTo(this.context, this.button1, {
+				destination: { transform: { local: { scale: { x: 0.6, y: 0.6, z: 0.6 } } } },
+				duration: 0.3,
+				easing: MRE.AnimationEaseCurves.EaseOutSine
+			});
+		});
+		
 		
 		
 		buttonBehavior.onHover('exit', () => {
 			MRE.Animation.AnimateTo(this.context, this.button, {
+				destination: { transform: { local: { scale: { x: 0.4, y: 0.4, z: 0.4 } } } },
+				duration: 0.3,
+				easing: MRE.AnimationEaseCurves.EaseOutSine
+			});
+		});
+		
+		
+		buttonBehavior1.onHover('exit', () => {
+			MRE.Animation.AnimateTo(this.context, this.button1, {
 				destination: { transform: { local: { scale: { x: 0.4, y: 0.4, z: 0.4 } } } },
 				duration: 0.3,
 				easing: MRE.AnimationEaseCurves.EaseOutSine
@@ -111,6 +129,12 @@ export default class HelloWorld {
 		buttonBehavior.onClick(_ => {
 			
 			this.startSound();
+			
+		});
+		
+		buttonBehavior1.onClick(_ => {
+			
+			this.startSound1();
 			
 		});
 
@@ -124,7 +148,7 @@ export default class HelloWorld {
 	private startSound1 = () => {
 		const options: MRE.SetAudioStateOptions = { volume: 0.1 };
 		options.time = 0;
-		this.button1.startSound(this.buzzerSound.id, options);
+		this.button1.startSound(this.buzzerSound1.id, options);
 	}
 
 }
