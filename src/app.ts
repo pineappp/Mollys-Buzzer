@@ -72,7 +72,7 @@ export default class HelloWorld {
 
 
 		this.button2 = MRE.Actor.CreateFromLibrary(this.context, {
-			resourceId: "artifact:1882579497761374922",
+			resourceId: "artifact:1856746917543805402",
 			actor: {
 				name: 'Altspace button2',
 				transform: {
