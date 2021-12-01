@@ -10,13 +10,14 @@ import * as MRE from '@microsoft/mixed-reality-extension-sdk';
 
 //tt 
 export default class HelloWorld {
-	private text: MRE.Actor = null;
 	private button: MRE.Actor = null;
 	private button1: MRE.Actor = null;
+	private button2: MRE.Actor = null;
 	private player: MRE.Actor = null;
 	private assets: MRE.AssetContainer;
 	private buzzerSound: MRE.Sound = undefined;
 	private buzzerSound1: MRE.Sound = undefined;
+	private buzzerSound2: MRE.Sound = undefined;
 
 	constructor(private context: MRE.Context) {
 		this.context.onStarted(() => this.started());
@@ -29,7 +30,7 @@ export default class HelloWorld {
 		// set up somewhere to store loaded assets (meshes, textures, animations, gltfs, etc.)
 		this.assets = new MRE.AssetContainer(this.context);
 
-		const menu = MRE.Actor.Create(this.context, {});
+		// const menu = MRE.Actor.Create(this.context, {});
 
 		// Load a glTF model before we use it
 		const cubeData = await this.assets.loadGltf('Button.glb', "box");
@@ -42,7 +43,7 @@ export default class HelloWorld {
 			actor: {
 				name: 'Altspace button',
 				// Parent the glTF model to the text actor, so the transform is relative to the text
-				parentId: menu.id,
+				// parentId: menu.id,
 				transform: {
 					local: {
 						position: { x: 0, y: -1, z: 0 },
@@ -62,10 +63,25 @@ export default class HelloWorld {
 			actor: {
 				name: 'Altspace button1',
 				// Parent the glTF model to the text actor, so the transform is relative to the text
-				parentId: menu.id,
+				// parentId: menu.id,
 				transform: {
 					local: {
 						position: { x: 1, y: -1, z: 0 },
+						scale: { x: 0.4, y: 0.4, z: 0.4 }
+					}
+				}
+			}
+		});
+
+
+
+		this.button2 = MRE.Actor.CreateFromLibrary(this.context, {
+			resourceId: "artifact:1875243432314667647",
+			actor: {
+				name: 'Altspace button2',
+				transform: {
+					local: {
+						position: { x: 2, y: -1, z: 0 },
 						scale: { x: 0.4, y: 0.4, z: 0.4 }
 					}
 				}
@@ -76,9 +92,15 @@ export default class HelloWorld {
 			'wrong1',
 			{ uri: 'https://cdn-content-ingress.altvr.com/uploads/audio_clip/audio/1882339059980829529/ogg_buzzersound.ogg' });
 		
+		
 		this.buzzerSound1 = this.assets.createSound(
 			'buzz1',
 			{ uri: 'https://cdn-content-ingress.altvr.com/uploads/audio_clip/audio/1882338733085164039/ogg_dingg.ogg' });
+
+		this.buzzerSound2 = this.assets.createSound(
+			'buzz2',
+			{ uri: 'https://cdn-content-ingress.altvr.com/uploads/audio_clip/audio/1882338733085164039/ogg_dingg.ogg' });
+				
 
 
 		// Set up cursor interaction. We add the sound
@@ -86,6 +108,8 @@ export default class HelloWorld {
 		const buttonBehavior = this.button.setBehavior(MRE.ButtonBehavior);
 		
 		const buttonBehavior1 = this.button1.setBehavior(MRE.ButtonBehavior);
+
+		const buttonBehavior2 = this.button2.setBehavior(MRE.ButtonBehavior);
 
 		// Trigger the grow/shrink animations on hover.
 		buttonBehavior.onHover('enter', () => {
@@ -138,6 +162,12 @@ export default class HelloWorld {
 			
 		});
 
+		buttonBehavior2.onClick(_ => {
+			
+			this.startSound2();
+			
+		});
+
 	}
 	private startSound = () => {
 		const options: MRE.SetAudioStateOptions = { volume: 0.1 };
@@ -149,6 +179,12 @@ export default class HelloWorld {
 		const options: MRE.SetAudioStateOptions = { volume: 0.7 };
 		options.time = 0;
 		this.button1.startSound(this.buzzerSound1.id, options);
+	}
+	
+	private startSound2 = () => {
+		const options: MRE.SetAudioStateOptions = { volume: 0.7 };
+		options.time = 0;
+		this.button2.startSound(this.buzzerSound2.id, options);
 	}
 
 }
