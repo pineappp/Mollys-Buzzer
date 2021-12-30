@@ -71,18 +71,18 @@ export default class HelloWorld {
 
 
 
-		//this.button2 = MRE.Actor.CreateFromLibrary(this.context, {
-			// resourceId: "artifact:1856746917543805402",
-			// actor: {
-				// name: 'Altspace button2',
-				// transform: {
-					// local: {
-						//position: { x: 2, y: -1, z: 0 },
-						//scale: { x: 0.4, y: 0.4, z: 0.4 }
-					// }
-				// }
-			// }
-		// });
+		this.button2 = MRE.Actor.CreateFromLibrary(this.context, {
+			 resourceId: "artifact:1856746917543805402",
+			 actor: {
+				 name: 'Altspace button2',
+				 transform: {
+					 local: {
+						position: { x: 2, y: -1, z: 0 },
+						scale: { x: 0.4, y: 0.4, z: 0.4 }
+					 }
+				 }
+			 }
+		 });
 
 		this.buzzerSound = this.assets.createSound(
 			'wrong1',
@@ -158,11 +158,11 @@ export default class HelloWorld {
 			
 		});
 
-		// buttonBehavior2.onClick(_ => {
+		 buttonBehavior2.onClick(_ => {
 			
-			// this.startSound2();
+			 this.startSound2();
 			
-		// });
+		 });
 
 	}
 	private startSound = () => {
@@ -177,10 +177,10 @@ export default class HelloWorld {
 		this.button1.startSound(this.buzzerSound1.id, options);
 	}
 	
-	// private startSound2 = () => {
-		// const options: MRE.SetAudioStateOptions = { volume: 0.7 };
-		// options.time = 0;
-		// this.button2.startSound(this.buzzerSound2.id, options);
-	// }
+	 private startSound2 = () => {
+		 const options: MRE.SetAudioStateOptions = { volume: 0.7 };
+		 options.time = 0;
+		 this.button2.startSound(this.buzzerSound2.id, options);
+	 }
 
 }
