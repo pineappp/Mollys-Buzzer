@@ -90,7 +90,7 @@ export default class HelloWorld {
 
 		this.buzzerSound2 = this.assets.createSound(
 			'buzz2',
-			{ uri: 'https://cdn-content-ingress.altvr.com/uploads/audio_clip/audio/1882338733085164039/ogg_dingg.ogg' });
+			{ uri: 'https://cdn-content-ingress.altvr.com/uploads/audio_clip/audio/1924497660119614360/ogg_DJ_Airhorn_Sound_Effect.ogg' });
 		
 		// Set up cursor interaction. We add the sound
 		// Button behaviors have two pairs of events: hover start/stop, and click start/stop.
