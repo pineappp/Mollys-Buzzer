@@ -158,7 +158,7 @@ export default class HelloWorld {
 			
 		});
 
-		 buttonBehavior2.onClick(_ => {
+		buttonBehavior2.onClick(_ => {
 			
 			 this.startSound2();
 			
