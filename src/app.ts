@@ -182,5 +182,4 @@ export default class HelloWorld {
 		 options.time = 0;
 		 this.button2.startSound(this.buzzerSound2.id, options);
 	 }
-
 }
