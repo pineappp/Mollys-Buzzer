@@ -93,9 +93,9 @@ export default class HelloWorld {
 			'buzz1',
 			{ uri: 'https://cdn-content-ingress.altvr.com/uploads/audio_clip/audio/1882338733085164039/ogg_dingg.ogg' });
 
-		// this.buzzerSound2 = this.assets.createSound(
-			// 'buzz2',
-			// { uri: 'https://cdn-content-ingress.altvr.com/uploads/audio_clip/audio/1882338733085164039/ogg_dingg.ogg' });
+		this.buzzerSound2 = this.assets.createSound(
+			'buzz2',
+			{ uri: 'https://cdn-content-ingress.altvr.com/uploads/audio_clip/audio/1882338733085164039/ogg_dingg.ogg' });
 				
 
 
@@ -105,7 +105,7 @@ export default class HelloWorld {
 		
 		const buttonBehavior1 = this.button1.setBehavior(MRE.ButtonBehavior);
 
-		// const buttonBehavior2 = this.button2.setBehavior(MRE.ButtonBehavior);
+		const buttonBehavior2 = this.button2.setBehavior(MRE.ButtonBehavior);
 
 		// Trigger the grow/shrink animations on hover.
 		buttonBehavior.onHover('enter', () => {
