@@ -36,10 +36,8 @@ export default class HelloWorld {
 		const cubeData = await this.assets.loadGltf('Button.glb', "box");
 
 		// spawn a copy of the glTF model
-		this.button = MRE.Actor.CreateFromPrefab(this.context, {
-			// using the data we loaded earlier
-			firstPrefabFrom: cubeData,
-			// Also apply the following generic actor properties.
+		this.button = MRE.Actor.CreateFromLibrary(this.context, {
+			resourceId: "artifact:1924514991898099717",
 			actor: {
 				name: 'Altspace button',
 				transform: {
@@ -51,10 +49,8 @@ export default class HelloWorld {
 			}
 		});
 		
-		this.button1 = MRE.Actor.CreateFromPrefab(this.context, {
-			// using the data we loaded earlier
-			firstPrefabFrom: cubeData,
-			// Also apply the following generic actor properties.
+		this.button1 = MRE.Actor.CreateFromLibrary(this.context, {
+			resourceId: "artifact:1924514992158146566",
 			actor: {
 				name: 'Altspace button1',
 				transform: {
@@ -67,7 +63,7 @@ export default class HelloWorld {
 		});
 		
 		this.button2 = MRE.Actor.CreateFromLibrary(this.context, {
-			resourceId: "artifact:1856746917543805402",
+			resourceId: "artifact:1924514991763881987",
 			actor: {
 				name: 'Altspace button2',
 				transform: {
