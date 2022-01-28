@@ -114,6 +114,14 @@ export default class HelloWorld {
 				easing: MRE.AnimationEaseCurves.EaseOutSine
 			});
 		});
+		buttonBehavior2.onHover('enter', () => {
+			// use the cnvenience function "AnimateTo" instead of creating the animation data in advance
+			MRE.Animation.AnimateTo(this.context, this.button2, {
+				destination: { transform: { local: { scale: { x: 0.6, y: 0.6, z: 0.6 } } } },
+				duration: 0.3,
+				easing: MRE.AnimationEaseCurves.EaseOutSine
+			});
+		});
 		buttonBehavior.onHover('exit', () => {
 			MRE.Animation.AnimateTo(this.context, this.button, {
 				destination: { transform: { local: { scale: { x: 0.4, y: 0.4, z: 0.4 } } } },
@@ -125,6 +133,13 @@ export default class HelloWorld {
 		
 		buttonBehavior1.onHover('exit', () => {
 			MRE.Animation.AnimateTo(this.context, this.button1, {
+				destination: { transform: { local: { scale: { x: 0.4, y: 0.4, z: 0.4 } } } },
+				duration: 0.3,
+				easing: MRE.AnimationEaseCurves.EaseOutSine
+			});
+		});
+		buttonBehavior2.onHover('exit', () => {
+			MRE.Animation.AnimateTo(this.context, this.button2, {
 				destination: { transform: { local: { scale: { x: 0.4, y: 0.4, z: 0.4 } } } },
 				duration: 0.3,
 				easing: MRE.AnimationEaseCurves.EaseOutSine
