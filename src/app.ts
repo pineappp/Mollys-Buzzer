@@ -51,9 +51,6 @@ export default class HelloWorld {
 			}
 		});
 		
-		
-		
-		
 		this.button1 = MRE.Actor.CreateFromPrefab(this.context, {
 			// using the data we loaded earlier
 			firstPrefabFrom: cubeData,
@@ -68,21 +65,19 @@ export default class HelloWorld {
 				}
 			}
 		});
-
-
-
+		
 		this.button2 = MRE.Actor.CreateFromLibrary(this.context, {
-			 resourceId: "artifact:1856746917543805402",
-			 actor: {
-				 name: 'Altspace button2',
-				 transform: {
-					 local: {
+			resourceId: "artifact:1856746917543805402",
+			actor: {
+				name: 'Altspace button2',
+				transform: {
+					local: {
 						position: { x: 2, y: -1, z: 0 },
 						scale: { x: 0.4, y: 0.4, z: 0.4 }
-					 }
-				 }
-			 }
-		 });
+					}
+				}
+			}
+		});
 
 		this.buzzerSound = this.assets.createSound(
 			'wrong1',
@@ -96,9 +91,7 @@ export default class HelloWorld {
 		this.buzzerSound2 = this.assets.createSound(
 			'buzz2',
 			{ uri: 'https://cdn-content-ingress.altvr.com/uploads/audio_clip/audio/1882338733085164039/ogg_dingg.ogg' });
-				
-
-
+		
 		// Set up cursor interaction. We add the sound
 		// Button behaviors have two pairs of events: hover start/stop, and click start/stop.
 		const buttonBehavior = this.button.setBehavior(MRE.ButtonBehavior);
@@ -125,9 +118,6 @@ export default class HelloWorld {
 				easing: MRE.AnimationEaseCurves.EaseOutSine
 			});
 		});
-		
-		
-		
 		buttonBehavior.onHover('exit', () => {
 			MRE.Animation.AnimateTo(this.context, this.button, {
 				destination: { transform: { local: { scale: { x: 0.4, y: 0.4, z: 0.4 } } } },
@@ -160,9 +150,9 @@ export default class HelloWorld {
 
 		buttonBehavior2.onClick(_ => {
 			
-			 this.startSound2();
+			this.startSound2();
 			
-		 });
+		});
 
 	}
 	private startSound = () => {
