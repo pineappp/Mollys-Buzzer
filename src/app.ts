@@ -173,7 +173,7 @@ export default class HelloWorld {
 	}
 	
 	private startSound1 = () => {
-		const options: MRE.SetAudioStateOptions = { volume: 100 };
+		const options: MRE.SetAudioStateOptions = { volume: 50 };
 		options.time = 0;
 		this.button1.startSound(this.buzzerSound1.id, options);
 	}
