@@ -15,9 +15,16 @@ export default class HelloWorld {
 	private player: MRE.Actor = null;
 	private assets: MRE.AssetContainer;
 	private buzzerSound: MRE.Sound = undefined;
+import { ActionState, BehaviorType, Guid, User } from '../..';
 
-	constructor(private context: MRE.Context) {
-		this.context.onStarted(() => this.started());
+export interface ActionEvent {
+	user: User;
+	targetId: Guid;
+	behaviorType: BehaviorType;
+	actionName: string;
+	actionState: ActionState;
+	actionData?: any;
+
 	}
 
 	/**
@@ -61,11 +68,18 @@ export default class HelloWorld {
 
 		// Trigger the grow/shrink animations on hover.
 		buttonBehavior.onHover('enter', () => {
-			// use the convenience function "AnimateTo" instead of creating the animation data in advance
-			MRE.Animation.AnimateTo(this.context, this.button, {
-				destination: { transform: { local: { scale: { x: 0.6, y: 0.6, z: 0.6 } } } },
-				duration: 0.3,
-				easing: MRE.AnimationEaseCurves.EaseOutSine
+			MRE.Actor.CreateFromLibrary(this.context, {
+			// using the data we loaded earlier
+			resourceId:"artifact:2153444484094886470",
+			// Also apply the following generic actor properties.
+			actor: {
+				name: 'Balloon Fall From Sky',
+				// Parent the glTF model to the text actor, so the transform is relative to the text
+				parentId: menu.id,
+				transform: {
+					local: {
+						position: { x: 0, y: -1, z: 0 },
+						scale: { x: 0.4, y: 0.4, z: 0.4 }
 			});
 		});
 		buttonBehavior.onHover('exit', () => {
