@@ -68,19 +68,7 @@ export interface ActionEvent {
 
 		// Trigger the grow/shrink animations on hover.
 		buttonBehavior.onHover('enter', () => {
-			MRE.Actor.CreateFromLibrary(this.context, {
-			// using the data we loaded earlier
-			resourceId:"artifact:2153444484094886470",
-			// Also apply the following generic actor properties.
-			actor: {
-				name: 'Balloon Fall From Sky',
-				// Parent the glTF model to the text actor, so the transform is relative to the text
-				parentId: menu.id,
-				transform: {
-					local: {
-						position: { x: 0, y: -1, z: 0 },
-						scale: { x: 0.4, y: 0.4, z: 0.4 }
-			});
+			
 		});
 		buttonBehavior.onHover('exit', () => {
 			MRE.Animation.AnimateTo(this.context, this.button, {
@@ -93,17 +81,19 @@ export interface ActionEvent {
 		// When clicked, do a 360 sideways.
 		buttonBehavior.onClick(_ => {
 			
-			this.startSound();
-			MRE.Animation.AnimateTo(this.context, this.button, {
-				destination: { transform: { local: { scale: { x: 2, y: 5, z: 2 } } } },
-				duration: 0.7,
-				easing: MRE.AnimationEaseCurves.EaseOutSine
-			});
-			MRE.Animation.AnimateTo(this.context, this.button, {
-				destination: { transform: { local: { scale: { x: 0.4, y: 0.4, z: 0.4 } } } },
-				duration: 0.3,
-				easing: MRE.AnimationEaseCurves.EaseOutSine
-			});
+			this.
+			});MRE.Actor.CreateFromLibrary(this.context, {
+			// using the data we loaded earlier
+			resourceId:"artifact:2153444484094886470",
+			// Also apply the following generic actor properties.
+			actor: {
+				name: 'Balloon Fall From Sky',
+				// Parent the glTF model to the text actor, so the transform is relative to the text
+				parentId: menu.id,
+				transform: {
+					local: {
+						position: { x: 0, y: -1, z: 0 },
+						scale: { x: 0.4, y: 0.4, z: 0.4 }
 		});
 
 	}
