@@ -35,10 +35,10 @@ export default class HelloWorld {
 		// spawn a copy of the glTF model
 		this.button = MRE.Actor.CreateFromLibrary(this.context, {
 			// using the data we loaded earlier
-			resourceId:"artifact:1956000461060309134",
+			resourceId:"artifact:2153444484094886470",
 			// Also apply the following generic actor properties.
 			actor: {
-				name: 'Altspace button',
+				name: 'Balloon Fall From Sky',
 				// Parent the glTF model to the text actor, so the transform is relative to the text
 				parentId: menu.id,
 				transform: {
